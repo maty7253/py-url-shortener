@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+        <h1 class="text-2xl font-bold text-center mb-8">URL Shortener</h1>
+        
+        <form method="POST" class="space-y-4">
+            <div>
+                <label for="url" class="block text-sm font-medium text-gray-700">Enter your URL</label>
+                <input type="url" name="url" id="url" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    placeholder="https://example.com">
+            </div>
+            <button type="submit"
+                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                Shorten URL
+            </button>
+        </form>
+
+        {% if short_url %}
+        <div class="mt-6 p-4 bg-green-50 rounded-md">
+            <h2 class="text-sm font-medium text-green-800">Your shortened URL:</h2>
+            <div class="mt-2 text-sm text-green-700">
+                <a href="{{ short_url }}" target="_blank" class="hover:underline">{{ short_url }}</a>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="mt-6 text-center">
+            <a href="{{ url_for('stats') }}" class="text-sm text-blue-600 hover:text-blue-500">
+                View Statistics
+            </a>
+        </div>
+    </div>
+</body>
+</html>
