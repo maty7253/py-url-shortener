@@ -14,7 +14,7 @@ A simple URL shortener built with Flask and SQLite. This project allows users to
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/url-shortener.git
+git clone https://github.com/maty7253/py-url-shortener.git
 cd url-shortener
 ```
 
